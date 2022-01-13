@@ -260,4 +260,82 @@ Hal yang harus dilakukan adalah :
   <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/cf8.png?raw=true"/>
 </p>
 
-Seperti pada output diatas, terlihat bahwa ada 10 ID tempat restoran yang direkomendasikan untuk pelanggan atau user id 50. Sistem akan merekomendasikan ID restoran pada user dengan prediksi yang telah diperhitungkan sehingga pelanggan telah mendapatkan 10 rekomendasi tempat restoran.
+Seperti pada output diatas, terlihat bahwa ada 10 `ID restoran` yang direkomendasikan untuk pelanggan atau `user id`  50. Sistem akan merekomendasikan ID restoran pada user dengan prediksi yang telah diperhitungkan sehingga pelanggan telah mendapatkan 10 rekomendasi tempat restoran yang paling sesuai.
+
+>## Evaluation
+Pada tahap ini, kita menggunakan metrik evaluasi Akurasi, Presisi, dan RMSE (Root Mean Squared Error).
+
+- `Akurasi` adalah salah satu metrik untuk mengevaluasi model klasifikasi. Secara informal, akurasi adalah sebagian kecil dari prediksi model kami yang benar. Secara formal, akurasi memiliki definisi sebagai berikut:
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/formula-accuracy.png?raw=true"/>
+</p>
+<p align="center">
+  Untuk klasifikasi biner, akurasi juga dapat dihitung dalam hal positif dan negatif sebagai berikut:
+</p>
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/formula-akurasi.png?raw=true"/>
+</p>
+
+<p align="center">
+  Dimana TP = Positif Benar, TN = Negatif Benar, FP = Positif Palsu, dan FN = Negatif Palsu.
+</p>
+
+Pada proyek ini, pada model Popularity Based Recommender System, nilai akurasi menggunakan data dari variabel data_sort['score']. Berikut adalah nilai metrik evaluasi akurasi pada model popularity based recommender system :
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/eval2.png?raw=true"/>
+</p>
+<hr>
+
+- `Presisi` adalah rasio prediksi benar positif dibandingkan dengan keseluruhan hasil yang diprediksi positif. 
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/formula-presisi.png?raw=true"/>
+</p>
+
+<p align="center">
+  Berikut adalah nilai metrik evaluasi presisi pada model Popularity Based Recommender System:
+</p>
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/pre-score.png?raw=true"/>
+</p>
+<hr>
+
+
+- ` Root Mean Square Deviation (RMSD) atau Root Mean Square Error (RMSE) ` adalah aturan penilaian kuadrat yang juga mengukur besarnya rata-rata kesalahan. Sama seperti MAE, semakin rendahnya nilai root mean square error juga menandakan semakin baik model tersebut dalam melakukan prediksi. RMSE adalah aturan penilaian kuadrat yang juga mengukur besarnya rata-rata kesalahan. Sama seperti MAE, semakin rendahnya nilai root mean square error juga menandakan semakin baik model tersebut dalam melakukan prediksi.
+
+Rumus RMSE :
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/formula-rmse.png?raw=true"/>
+</p>
+
+Nilai RMSE SVD model diatas merupakan hasil perhitungan dari: 
+> RMSE = round((((rmse_data.Avg_actual_rating - rmse_data.Avg_predicted_ratings) ** 2).mean() ** 0.5),5)
+
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/eval3.png?raw=true"/>
+</p>
+
+ Berikut adalah hasil visualisasi rate error rmse pada variabel rmse_data :
+ 
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/eval4.png?raw=true"/>
+</p>
+ 
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/eval5.png?raw=true"/>
+</p>
+ 
+> ## Conclusion
+Model rekomendasi berdasarkan `Popularity Based Recommender Model` tidak dipersonalisasi dan  didasarkan pada jumlah frekuensi, yang mungkin tidak sesuai untuk pengguna. Model merekomendasikan 5 tempat yang sama untuk semua pengguna tetapi model berbasis Collaborative Filtering dapat merekomendasikan seluruh daftar yang berbeda berdasarkan rating yang pengguna berikan.
+
+Model rekomendasi berdasarkan `Collaborative Filtering`  adalah sistem rekomendasi yang dipersonalisasi, rekomendasi didasarkan pada perilaku/interaksi pengguna di masa lalu (historis) dan tidak bergantung pada informasi tambahan apa pun.
+
+> ## Closing Statement
+<p align="justify">
+Sekian hasil dari laporan proyek machine learning, Recommendation System ini. Bilamana didalam penyampaian serta penjelasan yang kurang berkenaan, saya memohon maaf. Atas waktu dan perhatiannya, saya ucapkan Terima kasih telah membaca laporan ini. Semoga dapat memberi manfaat bagi kita semuanya.
+</p>
