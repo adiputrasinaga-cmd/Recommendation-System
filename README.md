@@ -32,7 +32,7 @@ Untuk menyelesaikan masalah yang telah disebutkan pada bagian `Problem Statement
 
 - `Collaborative Filtering Model`: Sistem merekomendasikan sejumlah restoran berdasarkan rating yang telah diberikan sebelumnya. Dari data rating pengguna, kita akan mengidentifikasi restoran-restoran yang mirip dan belum pernah dikunjungi oleh pengguna untuk direkomendasikan. Teknik ini menggunakan model based collaborative filtering : SVD (Singular Value Decomposition)
 
-## Data Understanding
+>## Data Understanding
 <p align="center">
   <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/kaggle-dataset-preview.png?raw=true"/>
 </p>
@@ -148,9 +148,33 @@ Bila ditotalkan, hasilnya adalah 1161 data entri/masukan.
 Untuk merekomendasikan restoran dengan preferensi teratas, kita dapat meminta setiap pengguna memberi peringkat terhadap semua restoran. Namun tentunya hal tersebut sedikit sulit dicapai. Solusinya adalah dengan memprediksi peringkat yang akan diberikan pengguna terhadap restoran.
 
 >## Data Preparation
+
+Sebelumnya kita akan memuat semua data rating yang diberikan pengguna pada sebuah variabel, `data_final`:
+ <p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/sd1.png?raw=true"/>
+</p>
+
 Pada tahap `Data Preparation`, kita dapat melakukan:
 
-- `Mengubah bentuk data menjadi bentuk matriks` : hal ini diperlukan untuk mempermudah model dalam teknik modeling Collaborative filtering : SVD (Singular Value Decomposition). 
+- `Mengubah bentuk data menjadi bentuk matriks` : hal ini diperlukan untuk mempermudah model dalam teknik modeling Collaborative filtering : SVD (Singular Value Decomposition). Seperti pada gambar dibawah:
+ <p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/sd2.png?raw=true"/>
+</p>
+
+- `Melakukan kalkulasi Densitas matriks` : Hal tersebut merupakan suatu cara untuk mengetahui banyak kemungkinan peringkat yang diberikan dan berapa tepatnya peringkat yang diberikan. 
+
+  - Banyak rating yang diberikan:
+     <p align="center">
+      <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/matrik1.png?raw=true"/>
+     </p>
+  - Total banyaknya rating yang bisa diberikan:
+     <p align="center">
+      <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/matrik2.png?raw=true"/>
+     </p>
+  - Menghitung Densitas matriks:
+     <p align="center">
+      <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/matrik3.png?raw=true"/>
+     </p>
 
 - `Mengatasi missing values` : missing value ini adalah hilangnya beberapa data entri/masukan pada dataset. 
 
@@ -164,9 +188,11 @@ Pada tahap `Data Preparation`, kita dapat melakukan:
 
 Pada proyek ini, kita dapat melihat bahwa variabel data_final tidak memiliki nilai yang hilang (missing value). Dapat disimpulkan bahwa data telah bersih dan telah siap untuk dimasukkan ke dalam pemodelan.
 
->## Modeling
+>## Modeling and Results
 
-Pada tahap modeling, kita menggunakan teknik  Content Based Recommendation yaitu Popularity Based Recommender Model dan teknik Singular Value Decomposition untuk Model Collaborative filtering.
+Dalam Machine Learning kita  sering mendengar tentang metode Random Forest yang digunakan untuk menyelesaikan permasalahan. Metode Random Forest merupakan salah satu metode dalam Decision Tree. Random Forest adalah kombinasi dari  masing-masing tree yang baik kemudian dikombinasikan  ke dalam satu model. Random Forest bergantung pada sebuah nilai vector random dengan distribusi yang sama pada semua pohon yang masing masing Decision Tree memiliki kedalaman yang maksimal. Oleh karena itu, prinsip dasar random forest mirip dengan Decision Tree. Masing-masing Decision Tree akan menghasilkan output yang bisa saja berbeda-beda. Random Forest ini akan melakukan voting untuk menentukan hasil mayoritas dari semua Decision Tree. Sederhananya, Random Forest akan memberikan output berupa mayoritas hasil dari semua Decision Tree ([dqlab](https://dqlab.id/macam-algoritma-klasifikasi-machine-learning-yang-penting-untuk-diketahui)).
+
+Pada tahap modeling ini, kita menggunakan pendekatan Random Forest untuk Content Based Recommendation yaitu Popularity Based Recommender Model dan teknik Singular Value Decomposition untuk Model Collaborative filtering.
 
 - `Popularity Based Recommender Model` : Rekomendasi ini didasari apa yang sedang populer/trend. Teknik ini merekomendasikan suatu produk berdasarkan rating tertinggi agar pelanggan lebih mudah dalam menilai suatu produk. Hasil dari teknik ini adalah daftar peringkat dari nilai rating restoran tertinggi, sehingga menandakan bahwa restoran tersebut sangat populer.
 
