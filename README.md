@@ -188,6 +188,13 @@ Pada tahap `Data Preparation`, kita dapat melakukan:
 
 Pada proyek ini, kita dapat melihat bahwa variabel data_final tidak memiliki nilai yang hilang (missing value). Dapat disimpulkan bahwa data telah bersih dan telah siap untuk dimasukkan ke dalam pemodelan.
 
+- `Melakukan pembagian data (split data)` : Setelah data dapat dipastikan bersih atau tidak mengandung `missing values`, kita dapat melakukan proses `split data`. Jika diperhatikan, pada tahap `Evaluation` terdapat kode program seperti seperti gambar dibawah: 
+<p align="center">
+  <img src="https://github.com/adiputrasinaga-cmd/recommendation-system/blob/main/img/train-test-split.png?raw=true"/>
+</p>
+
+Proses tersebut bertujuan untuk membagi data untuk data latih(train) dan data uji(test). Sebenarnya hal tersebut merupakan bagian dari tahap `Preparation`. Saya menempatkan kode tersebut pada tahap `Evaluation` untuk memudahkan kita mengamati proses evaluasi yang dimulai dari tahap `split data`.
+
 >## Modeling and Results
 
 Dalam Machine Learning kita  sering mendengar tentang metode Random Forest yang digunakan untuk menyelesaikan permasalahan. Metode Random Forest merupakan salah satu metode dalam Decision Tree. Random Forest adalah kombinasi dari  masing-masing tree yang baik kemudian dikombinasikan  ke dalam satu model. Random Forest bergantung pada sebuah nilai vector random dengan distribusi yang sama pada semua pohon yang masing masing Decision Tree memiliki kedalaman yang maksimal. Oleh karena itu, prinsip dasar random forest mirip dengan Decision Tree. Masing-masing Decision Tree akan menghasilkan output yang bisa saja berbeda-beda. Random Forest ini akan melakukan voting untuk menentukan hasil mayoritas dari semua Decision Tree. Sederhananya, Random Forest akan memberikan output berupa mayoritas hasil dari semua Decision Tree ([dqlab](https://dqlab.id/macam-algoritma-klasifikasi-machine-learning-yang-penting-untuk-diketahui)).
